@@ -86,7 +86,7 @@
   ;:skills-summary #_"Skills Summary"
   {"Clojure Programming"
    ["Wrote 30,000 lines of Clojure to support Get Bit Outdoors ERP system, aggregating data from 18 different silos and various formats into custom master database, verifying data integrity across 50K objects, generating reports, and coordinating complex CRUD operations to update system over different application API's."
-    "Developed custom Real Time Inventory integration, reducing customer service calls 70%."
+    "Developed custom \"Real Time\" Inventory integration, reducing customer service calls 70%."
     "Scripted browser with WebDriver to automate record updates on an internal web app that lacked an API. Scraped catalog data from vendor websites."
     "Built reactive ClojureScript Todo app with custom in-memory graph datastore and Firebase integration. "],
 
