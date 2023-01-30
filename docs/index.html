@@ -1,2 +1,196 @@
 <!DOCTYPE html>
-<html><head></head><body><div class="cv_home__title"><h1>Ryan Martin</h1><h2>Full Stack Developer</h2></div><a href="Resume.pdf" class="cv_home__resume_link">Resume (PDF)</a></body></html>
+<html><head><style>*, ::before, ::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: currentColor;
+}
+
+::before, ::after {
+  --gi-content: '';
+}
+
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: none;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+body {
+  margin: 0;
+  line-height: inherit;
+}
+
+hr {
+  height: 0;
+  color: inherit;
+  border-top-width: 1px;
+}
+
+abbr:where([title]) {
+  text-decoration: underline dotted;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+b, strong {
+  font-weight: bolder;
+}
+
+code, kbd, samp, pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 1em;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+table {
+  text-indent: 0;
+  border-color: inherit;
+  border-collapse: collapse;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, [type="button"], [type="reset"], [type="submit"] {
+  -webkit-appearance: button;
+  background-color: transparent;
+  background-image: none;
+}
+
+:-moz-focusring {
+  outline: auto;
+}
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+summary {
+  display: list-item;
+}
+
+blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol, ul, menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input::placeholder, textarea::placeholder {
+  opacity: 1;
+  color: #9ca3af;
+}
+
+button, [role="button"] {
+  cursor: pointer;
+}
+
+:disabled {
+  cursor: default;
+}
+
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: block;
+  vertical-align: middle;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+[hidden] {
+  display: none;
+}</style><style>.cv_home__title{margin-bottom:.5rem}.cv_home__title h1{font-size:2.25rem;line-height:2.5rem}
+.cv_home__resume_link{display:block;--gi-text-opacity:1;color:rgba(59,130,246,var(--gi-text-opacity));text-decoration:underline;margin-bottom:1rem}
+.cv_home__skill_keywords{margin-bottom:1rem}.cv_home__skill_keywords li{margin-bottom:1.5rem}
+.cv_home__experience{margin-bottom:1rem}.cv_home__experience li{margin-bottom:.5rem}.cv_home__experience p{margin-bottom:1rem;padding-left:.75rem}
+.cv_home__education{margin-bottom:1rem}
+.cv_home__left_col{height:100%;padding:1rem;max-width:300px;--gi-bg-opacity:1;background-color:rgba(0,0,0,var(--gi-bg-opacity));--gi-text-opacity:1;color:rgba(255,255,255,var(--gi-text-opacity));padding-left:2rem}
+.cv_home__right_col{height:100%;padding:1rem;--gi-bg-opacity:1;background-color:rgba(255,255,255,var(--gi-bg-opacity))}
+.cv_home__cols{display:flex;gap:.75rem}
+.cv_home__body{padding:0;margin:0}
+.cv_home__column{height:100%;padding:1rem}
+.cv_home__section_title{font-size:1.5rem;line-height:2rem;font-weight:700}
+.cv_home__subsection_title{font-size:1.125rem;line-height:1.75rem;font-weight:700;--gi-text-opacity:1;color:rgba(37,99,235,var(--gi-text-opacity))}
+.cv_home__cool_technologies a{font-weight:700;min-width:6rem;text-decoration:underline;--gi-text-opacity:1;color:rgba(29,78,216,var(--gi-text-opacity))}.cv_home__cool_technologies .item{display:flex;gap:2rem;margin-bottom:.5rem}
+.cv_home__skills_summary{margin-bottom:2rem}.cv_home__skills_summary .block{margin-bottom:1rem}.cv_home__skills_summary .subtitle{margin-bottom:.5rem}.cv_home__skills_summary ul{list-style-position:outside}.cv_home__skills_summary li{margin-bottom:1rem}
+.cv_home__personal_info{margin-bottom:2rem}.cv_home__personal_info .title{font-weight:700}.cv_home__personal_info .item{margin-bottom:1rem}
+.cv_home__sidebar_title{font-size:1.125rem;line-height:1.75rem;font-weight:700;--gi-text-opacity:1;color:rgba(37,99,235,var(--gi-text-opacity));margin-bottom:.5rem}</style><script src="https://livejs.com/live.js" type="text/javascript"></script></head><body class="cv_home__body"></body><div class="cv_home__cols"><div class="cv_home__left_col"><div class="cv_home__title"><h1>Ryan Martin</h1><h2>Full Stack Developer</h2></div><a href="Resume.pdf" class="cv_home__resume_link">PDF Document</a><div class="cv_home__personal_info"><h3 class="cv_home__sidebar_title">Personal Info</h3><div class="item"><div class="title">Address</div><div>1821 Amherst Ave.</div></div><div class="item"><div class="title">LinkedIn</div><div>linkedin.com/in/ryan-martin-1bb63511/</div></div><div class="item"><div class="title">E-mail</div><div>ryanmarti@gmail.com</div></div><div class="item"><div class="title">GitHub</div><div>github.com/chromalchemy</div></div><div class="item"><div class="title">Phone</div><div>917-743-9113</div></div></div><div class="cv_home__skill_keywords"><h3 class="cv_home__sidebar_title">Additional Skills</h3><ul><li>REPL / Test Driven Development</li><li>Data Modeling, Specification, Validation, Transformation</li><li>Data Visualization, Dashboards</li><li>Shell Scripting, Git, Regex</li><li>GraphQL, REST / JSON API</li><li>Reactive Web UI</li><li>Graphics, Adobe Creative Suite</li></ul></div></div><div class="cv_home__right_col"><div class="cv_home__skills_summary"><h2 class="cv_home__section_title">Skills Summary</h2><div class="block"><h3 class="cv_home__subsection_title subtitle">Clojure Programming</h3><ul><li>Wrote 30,000 lines of Clojure to support Get Bit Outdoors ERP system, aggregating data from 18 different silos and various formats into custom master database, verifying data integrity across 50K objects, generating reports, and coordinating complex CRUD operations to update system over different application API's.</li><li>Developed custom Real Time Inventory integration, reducing customer service calls 70%.</li><li>Scripted browser with WebDriver to automate record updates on an internal web app that lacked an API. Scraped catalog data from vendor websites.</li><li>Built reactive ClojureScript Todo app with custom in-memory graph datastore and Firebase integration. </li></ul></div><div class="block"><h3 class="cv_home__subsection_title subtitle">Full Stack Web Development</h3><ul><li>Building responsive HTML/CSS designs using various templating frameworks. Created custom templating language that compiles to Handlebars.</li><li>Updated and managed BigCommerce e-commerce  website with 18K products and 60K visitors/mo, using REST API extensively.</li><li>Wrote Javascript to surface necessary product data, and upgrade issues in legacy theme UI code.</li><li>Scripted Photoshop and ImageMagick to produce image sets for complex holiday campaign product layouts.</li><li>Coded 300 email-ready HTML templates for newsletter campaigns that generated $100k/year revenue. </li><li>Migrated production servers for 50% cost reduction</li></ul></div></div><div class="cv_home__experience"><h2 class="cv_home__section_title">Experience</h2><div><h3 class="cv_home__subsection_title">Software Developer, Get Bit Outdoors, Oviedo, FL 2019-Present</h3><p>Using Clojure to implement solutions at all levels of the software stack.</p></div><div><h3 class="cv_home__subsection_title">Graphic Designer/Web Developer, TinyBoxer, TopRank Web, Orlando, FL  2010-2019</h3><p>Developed on 30+ websites on a contract basis, programming front-end web views and display logic. Used leading web CMS platforms, designed data schemas, configured web servers, optimized view code for performance and SEO. Consulted clients on information design, created working wireframe prototypes, crafted and batch-processed media assets.</p></div><div><h3 class="cv_home__subsection_title">Painter, Orlando, FL 2007-Present</h3><p>Created, exhibited, and sold classical modern paintings in watercolor, acrylic, and oil color. Created a Linseed oil refinement system and produced custom oil paint mediums that support "Old Master" texture and technique.</p></div><div><h3 class="cv_home__subsection_title">Graphic Designer, VGS Graphic Systems 2006-2007</h3><p>Prepared graphic files for a large format Durst printer and a Zune plotter., scripting a process to generate variations on a design. Cut and manually prepared vinyl signs for installation.</p></div><div><h3 class="cv_home__subsection_title">IT Technician, BJM &amp; Associates, Orlando, FL 2001-2005</h3><p>Purchased, installed, and maintained PC applications, hardware, and network solutions for medium sized Engineering firm.</p></div></div><div class="cv_home__education"><h2 class="cv_home__section_title">Education</h2><span>New College, Sarasota, FL, 1997-2000</span></div><div class="cv_home__cool_technologies"><h2 class="cv_home__section_title">Technologies I'm interested in</h2><div class="item"><a href="https://github.com/noprompt/meander">Meander</a><span>Tools for transparent data transformation</span></div><div class="item"><a href="https://xtdb.com/">XTDB</a><span>Immutable Bitemporal Database for SQL, Datalog &amp; graph queries</span></div><div class="item"><a href="https://babashka.org/">Babashka</a><span>Fast native Clojure scripting runtime</span></div><div class="item"><a href="https://github.com/nextjournal/clerk">Clerk</a><span>Moldable Live Programming for Clojure</span></div><div class="item"><a href="https://www.hyperfiddle.net/">Hyperfiddle</a><span>UI modeling language in a notebook</span></div><div class="item"><a href="https://github.com/Tensegritics/ClojureDart">ClojureDart</a><span>Build Dart/Flutter mobile and desktop apps with Clojure</span></div><div class="item"><a href="https://github.com/HumbleUI/HumbleUI">HumbleUI </a><span>Skia-Based Desktop Functional UI framework</span></div><div class="item"><a href="https://github.com/kennytilton/matrix">Matrix</a><span>Fine-grained, transparent data flow between generative objects.</span></div><div class="item"><a href="https://github.com/metosin/malli">Malli</a><span>Data-driven Schemas for Clojure/Script</span></div><div class="item"><a href="https://github.com/kennytilton/flutter-mx">Flutter/MX</a><span>Programming Flutter with ClojureDart and Matrix, a generic, fine-grained, transparent, reactive state manager</span></div><div class="item"><a href="https://www.datarabbit.com/">Data Rabbit</a><span>Flow-based Clojure canvas for data exploration, visualization, &amp; learning. "A system built for seeing"</span></div><div class="item"><a href="https://github.com/phronmophobic/membrane">Membrane </a><span>Simple Functional UI Library That Runs Anywhere</span></div></div></div></div></html>
