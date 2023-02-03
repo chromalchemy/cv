@@ -133,11 +133,11 @@
   {:membrane
    {:name "Membrane "
     :url "https://github.com/phronmophobic/membrane"
-    :subtitle "Simple Functional UI Library That Runs Anywhere"}
+    :subtitle "Simple Functional UI Library that runs anywhere"}
    :humbleui
    {:name "HumbleUI "
     :url "https://github.com/HumbleUI/HumbleUI"
-    :subtitle "Skia-Based Desktop Functional UI framework"}
+    :subtitle "Functional UI framework for Desktop apps"}
    :hyperfiddle
    {:name "Hyperfiddle"
     :url "https://www.hyperfiddle.net/"
@@ -145,7 +145,7 @@
    :data-rabbit
    {:name "Data Rabbit"
     :url "https://www.datarabbit.com/"
-    :subtitle "Flow-based Clojure canvas for data exploration, visualization, & learning. \"A system built for seeing\""}
+    :subtitle (str "Flow-based Clojure canvas for data exploration, visualization, & learning." #_" \"A system built for seeing\"")}
    :clerk
    {:name "Clerk"
     :url "https://github.com/nextjournal/clerk"
@@ -153,11 +153,11 @@
    :matrix
    {:name "Matrix"
     :url "https://github.com/kennytilton/matrix"
-    :subtitle "Fine-grained, transparent data flow between generative objects."}
+    :subtitle "Fine-grained, transparent data flow between generative objects"}
    :flutter/mx
    {:name "Flutter/MX"
     :url "https://github.com/kennytilton/flutter-mx"
-    :subtitle "Programming Flutter with ClojureDart and Matrix, a generic, fine-grained, transparent, reactive state manager"}
+    :subtitle "Programming Flutter with ClojureDart and fine-grained reactive state manager"}
    :malli
    {:name "Malli"
     :url "https://github.com/metosin/malli"
@@ -167,7 +167,7 @@
     :url "https://github.com/babashka/babashka" #_"https://babashka.org/"
     :subtitle "Fast native Clojure scripting runtime"}
    :clojure-dart
-   {:subtitle "Build Dart/Flutter mobile and desktop apps with Clojure"
+   {:subtitle "Dart/Flutter mobile and desktop apps with Clojure"
     :name "ClojureDart"
     :url "https://github.com/Tensegritics/ClojureDart"}
    :meander
