@@ -75,6 +75,15 @@
 ;(#(get % "Experience")))
 
 
+(def personal-info-md
+  "#### E-mail
+[ryanmarti@gmail.com](mailto:ryanmarti@gmail.com)
+#### Social
+[GitHub](https://github.com/chromalchemy)
+[LinkedIn](https://www.linkedin.com/in/ryan-martin-1bb63511/)
+#### Phone
+[917-743-9113](tel:917-743-9113)
+")
 (def personal-info
   {"Address" "1821 Amherst Ave.",
    "LinkedIn" "linkedin.com/in/ryan-martin-1bb63511/",
@@ -104,7 +113,7 @@
   {"Software Developer, Get Bit Outdoors, Oviedo, FL 2019-Present" "Using Clojure to implement solutions at all levels of the software stack.",
    "Graphic Designer/Web Developer, TinyBoxer, TopRank Web, Orlando, FL  2010-2019" "Developed on 30+ websites on a contract basis, programming front-end web views and display logic. Used leading web CMS platforms, designed data schemas, configured web servers, optimized view code for performance and SEO. Consulted clients on information design, created working wireframe prototypes, crafted and batch-processed media assets.",
    "Painter, Orlando, FL 2007-Present" "Created, exhibited, and sold classical modern paintings in watercolor, acrylic, and oil color. Created a Linseed oil refinement system and produced custom oil paint mediums that support \"Old Master\" texture and technique.",
-   "Graphic Designer, VGS Graphic Systems 2006-2007" "Prepared graphic files for a large format Durst printer and a Zune plotter., scripting a process to generate variations on a design. Cut and manually prepared vinyl signs for installation.",
+   "Graphic Designer, VGS Graphic Systems 2006-2007" "Prepared graphic files for a large format Durst printer and a Zune plotter, scripting a process to generate variations on a design. Cut and manually prepared vinyl signs for installation.",
    "IT Technician, BJM & Associates, Orlando, FL 2001-2005" "Purchased, installed, and maintained PC applications, hardware, and network solutions for medium sized Engineering firm."})
 
 (def education
@@ -155,7 +164,7 @@
     :subtitle "Data-driven Schemas for Clojure/Script"}
    :babashka
    {:name "Babashka"
-    :url "https://babashka.org/"
+    :url "https://github.com/babashka/babashka" #_"https://babashka.org/"
     :subtitle "Fast native Clojure scripting runtime"}
    :clojure-dart
    {:subtitle "Build Dart/Flutter mobile and desktop apps with Clojure"
