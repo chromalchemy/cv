@@ -45,7 +45,7 @@
 (defstyled resume-link :a
   :text-blue-500 #_:underline :mb-4 :ml-4 :sm:text-sm #_:font-bold
   :border-b-1 :border-solid
-  :hover:border-white
+  :hover:border-white :tracking-normal
   {:font-family (font :pt-serif)}
   :text-lg
   ([]
@@ -55,7 +55,7 @@
 (defstyled resume-title left-block
   [:h1 :text-6xl :sm:text-4xl :tracking-tight
    {:font-family (font :pt-mono)} :ml-0 :pl-0]
-  [:h2 {:font-family (font :pt-sans)} :tracking-wider :text-xl :sm:text-sm :text-center :sm:text-left]
+  [:h2 {:font-family (font :pt-sans)} :tracking-widest :text-xl :sm:text-sm :text-center :sm:text-left]
   [:br :hidden :sm:inline]
   ([]
    [:<>
