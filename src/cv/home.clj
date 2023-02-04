@@ -141,7 +141,7 @@
 
 (defstyled right-col column
   :bg-white :lg:pr-15  :pb-8 :md:mb-15 :md:pt-6 :pl-2.5rem
-  :md:rounded-bl-3xl
+  :md:rounded-bl-lg
   [" > div" :mb-8])
 
 (defstyled cols :div
