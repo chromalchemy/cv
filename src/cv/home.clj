@@ -7,6 +7,10 @@
     [garden.compiler :as gc :refer [compile-css]]
     [cv.tw-preflight :refer [tw-preflight-3-css-str]]
     [cybermonday.core :as md]
+    [cybermonday.utils]
+    [com.rpl.specter]
+    [cybermonday.ir :refer [md-to-ir]]
+    [cybermonday.parser]
     [flatland.useful.seq :refer [partition-between]])
   (:require
     [cv.data :as data]
@@ -14,30 +18,51 @@
     [garden.selectors :as s])
   (:use [com.rpl.specter]))
 
+(defn hiccup->html [html]
+  (-> html
+    (hiccup/render {:doctype? false})))
+
+(defn md->hiccup [markdown-str]
+  (-> markdown-str
+    (md/parse-body)))
+
+(defn md->html [markdown-str]
+  (-> markdown-str
+    md->hiccup
+    hiccup->html))
+
+;-----------------
 
 
+(defstyled left-block :div
+  :mb-4 :sm:mb-6 :pl-6 :lg:pl-10 :pr-6)
 (def font
   {:pt-mono "PT Mono"
    :pt-sans "PT Sans"
    :pt-serif "PT Serif"
    :pt-sans-narrow "PT Sans Narrow"})
 
-(defstyled title :div
-  :mb-2
-  [:h1 :text-4xl
-   {:font-family (font :pt-mono)} :ml-0 :pl-0]
-  [:h2 {:font-family (font :pt-serif)} :tracking-wide :text-sm]
-  ([]
-   [:<>
-    [:h1 "Ryan" [:br] "Martin"]
-    [:h2 "Full Stack Developer"]]))
-
 (defstyled resume-link :a
-  :block :text-red :text-blue-500 :underline :mb-4
+  :text-blue-500 #_:underline :mb-4 :ml-4 :sm:text-sm #_:font-bold
+  :border-b-1 :border-solid
+  :hover:border-white
+  {:font-family (font :pt-serif)}
+  :text-lg
+  ([]
+   [:<> {:href "Ryan Martin Resume.pdf"}
+    "PDF"]))
+
+(defstyled resume-title left-block
+  [:h1 :text-6xl :sm:text-4xl :tracking-tight
+   {:font-family (font :pt-mono)} :ml-0 :pl-0]
+  [:h2 {:font-family (font :pt-serif)} :tracking-wide :text-xl :sm:text-sm :text-center :sm:text-left]
+  [:br :hidden :sm:inline]
   ([]
    [:<>
-    {:href "Ryan Martin Resume.pdf"}
-    "PDF Document"]))
+    [:h1 "Ryan " [:br] "Martin"]
+    [:h2 "Full Stack Developer"
+     [resume-link]]]))
+
 
 (defstyled section-title :h2
   :text-md
@@ -51,34 +76,41 @@
 
 
 (defstyled subsection-title :h3
-  :text-md
+  :text-lg #_:font-bold #_:sm:font-normal :sm:text-md
   :text-blue-600
   ;:tracking-wider
   :mb-0
-  :font-normal
   {:font-family (font :pt-sans)})
 
+
+
 (defstyled sidebar-title subsection-title
-  :mb-4 :text-md :font-normal #_:text-white
+  left-block :mb-6 :text-sm
+  :font-normal :tracking-wide
+  :hidden :sm:block
   {:font-family (font :pt-sans)}
   :text-blue-500
-  #_:bg-gray-700)
+  :py-2
+  #_:text-white
+  :bg-black)
+
 
 (defstyled skill-keywords :div
-  :mb-4
-  [:li :mb-6 :text-sm]
+  :hidden :sm:block
+  [:h3 :mb-10]
+  [:li.keywords :mb-8 :leading-snug :text-sm]
   ([]
    [:<>
     [sidebar-title "More Skills"]
-    [:ul
-     (for [x data/skill-keywords]
-       [:li x])]]))
+    [left-block
+     [:ul
+      (for [x data/skill-keywords]
+        [:li.keywords x])]]]))
 
 
 
 (defstyled experience :div
-  [:li :mb-2]
-  [:p :mb-4 :pl-3 :leading-tight]
+  [:p :mb-4 #_:pl-2 :leading-snug :text-md :mt-1]
   ([]
    [:<>
     [section-title "Experience"]
@@ -88,6 +120,7 @@
        [:p s]])]))
 
 (defstyled education :div
+  [:span :text-sm]
   ([]
    [:<>
     [section-title "Education"]
@@ -98,15 +131,21 @@
   :p-5)
 
 (defstyled left-col column
-  :min-w-300px :max-w-400px
-  :text-white :pl-8)
+  :sm:min-w-300px :sm:max-w-400px
+  :px-0
+  :text-white
+  :mx-auto
+  :sm:block
+  :pb-4)
+  ;:border-4 :border-red-500 :boder-dotted)
 
 (defstyled right-col column
-  :bg-white :pr-10 :pt-6 :pb-8 :mb-15 :pl-2.5rem
+  :bg-white :lg:pr-15  :pb-8 :md:mb-15 :md:pt-6 :pl-2.5rem
+  :md:rounded-bl-3xl
   [" > div" :mb-8])
 
 (defstyled cols :div
-  :flex :items-stretch #_:gap-8 :h-full :flex-row)
+  :flex :items-stretch #_:gap-8 :h-full :flex-col :sm:flex-row)
   ;[(s/> (s/&) (s/div (s/first-child))) :w-33% :bg-gray-400]
   ;[(s/> (s/&) (s/div (s/last-child)))  :w-77% :bg-red-500]
   ;([left right]
@@ -115,7 +154,7 @@
   ;  right]))
 
 (defstyled body :body
-  :p-0 :m-0 :bg-black
+  :p-0 :m-0 :bg-#011d45
   :tracking-wide)
   ;{:font-family (font :pt-sans)} )
 
@@ -133,11 +172,12 @@
        [:a {:href url} lib-name]
        [:span subtitle]])]))
 
+
 (defstyled skills-summary :div
   [:.block :mb-5]
   [:.subtitle :mb-5 :mt-0]
   [:ul :list-outside :list-disc :pl-3]
-  [:li :mb-4 :text-sm :leading-tight]
+  [:li :mb-2 :text-md :sm:text-sm :leading-tight]
   ([]
    [:<>
     [section-title "Skills Summary"]
@@ -148,37 +188,29 @@
         (for [x experience-lines]
           [:li x])]])]))
 
-(defn hiccup->html [html]
-  (-> html
-    (hiccup/render {:doctype? false})))
-
-(defn md->hiccup [markdown-str]
-  (-> markdown-str
-    (md/parse-md)
-    :body))
-
-(defn md->html [markdown-str]
-  (-> markdown-str
-    md->hiccup
-    hiccup->html))
-
-;todo: make links live
-(do
-  (defstyled personal-info :div
-    :mb-8 :text-sm
-    [:h4 :font-bold {:font-family (font :pt-sans)} :text-gray-300]
-    [:p :flex :flex-col :leading-loose
-     :mb-4
-     [:a :block :underline]]
-    ([]
-     [:<>
-      [sidebar-title "Personal Info"]
-      (md->hiccup data/personal-info-md)]))
-
-
-
-  (-> [personal-info]
-    (hiccup/render)))
+(defstyled personal-info :div
+  :sm:mb-8 :text-lg :sm:text-sm
+  [:h4 :font-bold {:font-family (font :pt-sans)} :text-gray-300]
+  [:.info :flex :justify-center :sm:block #_#_#_:border-1 :border-solid :border-white
+   [:p :ml-2]
+   [:h4 :mt-1]]
+  [:p :flex :flex-row :sm:flex-col :leading-loose
+   :sm:mb-4
+   [:a :block :text-blue-300 :hover:text-blue-500
+    :mr-2 :sm:mr-0]]
+  ([]
+   [:<>
+    [sidebar-title "Personal Info"]
+    [left-block
+     (for
+       [[title content]
+        (->> data/personal-info-md
+             md->hiccup
+            (select [ALL (selected? vector?)])
+            (partition 2))]
+       [:div.info
+        title
+        content])]]))
 
 
 (def fonts-links
@@ -198,8 +230,8 @@
    [body
     [cols
      [left-col
-      [title]
-      [resume-link]
+      [resume-title]
+      ;[resume-link]
       [personal-info]
       [skill-keywords]]
      [right-col

@@ -78,9 +78,11 @@
 (def personal-info-md
   "#### E-mail
 [ryanmarti@gmail.com](mailto:ryanmarti@gmail.com)
+
 #### Social
 [GitHub](https://github.com/chromalchemy)
 [LinkedIn](https://www.linkedin.com/in/ryan-martin-1bb63511/)
+
 #### Phone
 [917-743-9113](tel:917-743-9113)
 ")
