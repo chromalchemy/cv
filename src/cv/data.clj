@@ -123,7 +123,7 @@
   "New College, Sarasota, FL, 1997-2000")
 
 (def skill-keywords
-  ["REPL / Test Driven Development"
+  ["REPL / Test-Driven Development"
    "Data Modeling, Specification, Validation, Transformation"
    "Data Visualization, Dashboards"
    "Shell Scripting, Git, Regex"

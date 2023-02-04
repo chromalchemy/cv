@@ -97,7 +97,11 @@
 (defstyled skill-keywords :div
   :hidden :sm:block
   [:h3 :mb-10]
-  [:li.keywords :mb-8 :leading-snug :tracking-tight :text-sm]
+  [:li.keywords
+   :mb-8 :leading-snug  :text-sm
+   :tracking-wide
+   ;:tracking-tight
+   {:font-family (font :pt-sans)}]
   ([]
    [:<>
     [sidebar-title "More Skills"]
@@ -191,12 +195,11 @@
   :sm:mb-8 :text-lg :sm:text-sm
   [:h4 :font-bold {:font-family (font :pt-sans)} :text-gray-300]
   [:.info :flex :justify-center :sm:block #_#_#_:border-1 :border-solid :border-white
-   [:h4 :mt-1]
-   [:p :ml-2 :md :ml-0]]
-  [:p :flex :flex-row :sm:flex-col :leading-loose
-   :sm:mb-4
-   [:a :block :text-blue-300 :hover:text-blue-500
-    :mr-2 :sm:mr-0]]
+   [:h4 :mt-1 :tracking-wider]
+   [:p :flex :flex-row :sm:flex-col :leading-loose
+    :sm:mb-4 :ml-2 :md :ml-0
+    [:a :block :text-blue-300 :hover:text-blue-500
+     :mr-2 :sm:mr-0]]]
   ([]
    [:<>
     [sidebar-title "Personal Info"]
