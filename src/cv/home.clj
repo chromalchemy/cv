@@ -55,14 +55,13 @@
 (defstyled resume-title left-block
   [:h1 :text-6xl :sm:text-4xl :tracking-tight
    {:font-family (font :pt-mono)} :ml-0 :pl-0]
-  [:h2 {:font-family (font :pt-serif)} :tracking-wide :text-xl :sm:text-sm :text-center :sm:text-left]
+  [:h2 {:font-family (font :pt-sans)} :tracking-wider :text-xl :sm:text-sm :text-center :sm:text-left]
   [:br :hidden :sm:inline]
   ([]
    [:<>
     [:h1 "Ryan " [:br] "Martin"]
     [:h2 "Full Stack Developer"
      [resume-link]]]))
-
 
 (defstyled section-title :h2
   :text-md
@@ -141,16 +140,17 @@
 (defstyled right-col column
   :bg-white :lg:pr-15  :pb-8 :md:mb-15 :md:pt-6 :pl-2.5rem
   :md:rounded-bl-lg
-  [" > div" :mb-8])
+  [" > div" :mb-8]
 
-(defstyled cols :div
-  :flex :items-stretch #_:gap-8 :h-full :flex-col :sm:flex-row)
-  ;[(s/> (s/&) (s/div (s/first-child))) :w-33% :bg-gray-400]
-  ;[(s/> (s/&) (s/div (s/last-child)))  :w-77% :bg-red-500]
-  ;([left right]
-  ; [:<>
-  ;  left
-  ;  right]))
+  (defstyled cols :div
+    :flex :items-stretch #_:gap-8 :h-full :flex-col :sm:flex-row))
+    ;[(s/> (s/&) (s/div (s/first-child))) :w-33% :bg-gray-400]
+    ;[(s/> (s/&) (s/div (s/last-child)))  :w-77% :bg-red-500]
+    ;([left right]
+    ; [:<>
+    ;  left
+    ;  right]))
+
 
 (defstyled body :body
   :p-0 :m-0 :bg-#011d45
