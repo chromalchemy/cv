@@ -126,7 +126,6 @@
     [section-title "Education"]
     [:span data/education]]))
 
-
 (defstyled column :div
   :p-5)
 
@@ -206,11 +205,11 @@
        [[title content]
         (->> data/personal-info-md
              md->hiccup
-            (select [ALL (selected? vector?)])
+            (filter vector?)
             (partition 2))]
        [:div.info
-        title
-        content])]]))
+          title
+          content])]]))
 
 
 (def fonts-links
