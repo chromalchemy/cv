@@ -97,7 +97,7 @@
 (defstyled skill-keywords :div
   :hidden :sm:block
   [:h3 :mb-10]
-  [:li.keywords :mb-8 :leading-snug :text-sm]
+  [:li.keywords :mb-8 :leading-snug :tracking-tight :text-sm]
   ([]
    [:<>
     [sidebar-title "More Skills"]
