@@ -192,8 +192,8 @@
   :sm:mb-8 :text-lg :sm:text-sm
   [:h4 :font-bold {:font-family (font :pt-sans)} :text-gray-300]
   [:.info :flex :justify-center :sm:block #_#_#_:border-1 :border-solid :border-white
-   [:p :ml-2]
-   [:h4 :mt-1]]
+   [:h4 :mt-1]
+   [:p :ml-2 :md :ml-0]]
   [:p :flex :flex-row :sm:flex-col :leading-loose
    :sm:mb-4
    [:a :block :text-blue-300 :hover:text-blue-500
