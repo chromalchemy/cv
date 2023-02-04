@@ -54,7 +54,7 @@
 
 (defstyled resume-title left-block
   [:h1 :text-6xl :sm:text-4xl :tracking-tight
-   {:font-family (font :pt-mono)} :ml-0 :pl-0]
+   {:font-family (font :pt-mono)} :ml-0 :pl-0 :mb-2 :sm:mb-0]
   [:h2 {:font-family (font :pt-sans)} :tracking-widest :text-xl :sm:text-sm :text-center :sm:text-left]
   [:br :hidden :sm:inline]
   ([]
@@ -142,18 +142,18 @@
   ;:border-4 :border-red-500 :boder-dotted)
 
 (defstyled right-col column
-  :bg-white :lg:pr-15  :pb-8 :md:mb-15 :md:pt-6 :pl-2.5rem
+  :bg-white :lg:pr-15  :pb-8 :md:mb-15 :pt-3 :md:pt-6 :pl-2.5rem
   :md:rounded-bl-lg
-  [" > div" :mb-8]
+  [" > div" :mb-8])
 
-  (defstyled cols :div
-    :flex :items-stretch #_:gap-8 :h-full :flex-col :sm:flex-row))
-    ;[(s/> (s/&) (s/div (s/first-child))) :w-33% :bg-gray-400]
-    ;[(s/> (s/&) (s/div (s/last-child)))  :w-77% :bg-red-500]
-    ;([left right]
-    ; [:<>
-    ;  left
-    ;  right]))
+(defstyled cols :div
+  :flex :items-stretch #_:gap-8 :h-full :flex-col :sm:flex-row)
+  ;[(s/> (s/&) (s/div (s/first-child))) :w-33% :bg-gray-400]
+  ;[(s/> (s/&) (s/div (s/last-child)))  :w-77% :bg-red-500]
+  ;([left right]
+  ; [:<>
+  ;  left
+  ;  right]))
 
 
 (defstyled body :body
@@ -194,7 +194,7 @@
 (defstyled personal-info :div
   :sm:mb-8 :text-lg :sm:text-sm
   [:h4 :font-bold {:font-family (font :pt-sans)} :text-gray-300]
-  [:.info :flex :justify-center :sm:block #_#_#_:border-1 :border-solid :border-white
+  [:.info :flex :justify-center :gap-2  :sm:block #_#_#_:border-1 :border-solid :border-white
    [:h4 :mt-1 :tracking-wider]
    [:p :flex :flex-row :sm:flex-col :leading-loose
     :sm:mb-4 :ml-2 :md :ml-0
