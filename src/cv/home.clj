@@ -1,6 +1,7 @@
 (ns cv.home
   (:require
    [clj-reload.core :as reload]
+   [clj-reload.core :as reload]
     [lambdaisland.hiccup :as hiccup]
     [lambdaisland.ornament :as o :refer [defstyled]]
     [clojure.string :as string]
@@ -15,8 +16,14 @@
   (:require
     [cv.data :as data]
     #_:reload
+    #_:reload
     [garden.selectors :as s])
   (:use [com.rpl.specter]))
+
+(comment 
+  (reload/init
+    {:dirs ["src"]})
+  )
 
 (comment 
   (reload/init
@@ -67,6 +74,7 @@
     [:h1 "Ryan " [:br] "Martin"]
     [:h2 "Full Stack Developer"
      #_[resume-link]]]))
+     #_[resume-link]]]))
 
 (defstyled section-title :h2
   :text-md
@@ -95,6 +103,7 @@
   :text-blue-500
   :py-2
   #_:text-white
+  :bg-gray-100)
   :bg-gray-100)
 
 
@@ -139,6 +148,7 @@
   :sm:min-w-300px :sm:max-w-400px
   :px-0
   #_:text-white
+  #_:text-white
   :mx-auto
   :sm:block
   :pb-4)
@@ -163,6 +173,9 @@
   :p-0 :m-0 
   #_:bg-#011d45
   :bg-gray-100
+  :p-0 :m-0 
+  #_:bg-#011d45
+  :bg-gray-100
   :tracking-wide)
   ;{:font-family (font :pt-sans)} )
 
@@ -175,6 +188,7 @@
   ([]
    [:<>
     [section-title "Technologies I'm Exploring"]
+    (for [{lib-name :name :keys [url subtitle]} data/technologies-interested-in]
     (for [{lib-name :name :keys [url subtitle]} data/technologies-interested-in]
       [:div.item
        [:a {:href url} lib-name]
@@ -200,10 +214,14 @@
   :sm:mb-8 :text-lg :sm:text-sm
   [:h4 :font-bold {:font-family (font :pt-sans)} 
    #_:text-gray-300]
+  [:h4 :font-bold {:font-family (font :pt-sans)} 
+   #_:text-gray-300]
   [:.info :flex :justify-center :gap-2  :sm:block #_#_#_:border-1 :border-solid :border-white
    [:h4 :mt-1 :tracking-wider]
    [:p :flex :flex-row :sm:flex-col :leading-loose
     :sm:mb-4 :ml-2 :md :ml-0
+    [:a :block 
+     #_:text-blue-300 :hover:text-blue-500
     [:a :block 
      #_:text-blue-300 :hover:text-blue-500
      :mr-2 :sm:mr-0]]]
@@ -243,6 +261,28 @@
        [:div.info
         md-info]])]))
 
+(defstyled personal-print :div
+  :sm:mb-8 :text-lg :sm:text-sm
+  [:h4 :font-bold {:font-family (font :pt-sans)}
+   #_:text-gray-300]
+  [:.info :flex :justify-center :gap-2  :sm:block #_#_#_:border-1 :border-solid :border-white
+   [:h4 :mt-1 :tracking-wider]
+   [:p :flex :flex-row :sm:flex-col :leading-loose
+    :sm:mb-4 :ml-2 :md :ml-0
+    [:a :block
+     #_:text-blue-300 :hover:text-blue-500
+     :mr-2 :sm:mr-0]]]
+  ([]
+   [:<>
+    (let [md-info
+          (->> data/personal-info-md
+            md->hiccup
+            #_(filter vector?))]
+      [sidebar-title "Personal Info"]
+      [left-block
+       [:div.info
+        md-info]])]))
+
 
 (def fonts-links
   [:<>
@@ -250,6 +290,8 @@
    [:link {:rel "preconnect" :href "https://fonts.gstatic.com" :crossorigin "true"}]
    [:link {:href "https://fonts.googleapis.com/css2?family=PT+Mono&family=PT+Sans+Narrow:wght@400;700&family=PT+Sans:wght@400;700&family=PT+Serif:wght@400;700&display=swap" :rel "stylesheet"}]])
 
+#_(defn timestamp []
+  (System/currentTimeMillis))
 #_(defn timestamp []
   (System/currentTimeMillis))
 
@@ -268,6 +310,8 @@
       ;[resume-link]
       #_[personal-info]
       [personal-print]
+      #_[personal-info]
+      [personal-print]
       [skill-keywords]]
      [right-col
       [skills-summary]
@@ -275,6 +319,22 @@
       [education]
       [cool-technologies]]]]])
 
+
+#_(reload/reload)
+
+(def page-css
+  (o/defined-styles
+    {:preflight? true
+     :tw-version 3}))
+
+
+(do
+  (spit "docs/styles.css" page-css)
+  (println "spit css file")
+  (->> home-hiccup
+    (hiccup/render)
+    (spit "docs/index.html"))
+  (println "spit html file"))
 
 #_(reload/reload)
 

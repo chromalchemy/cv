@@ -1,3 +1,4 @@
 {
-    "calva.evalOnSave": true
+    "calva.evalOnSave": true,
+    "workbench.colorTheme": "Real IntelliJ Light"
 }
