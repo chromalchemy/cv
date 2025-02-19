@@ -1,23 +1,21 @@
 (ns cv.home
   (:require
    [clj-reload.core :as reload]
-   [clj-reload.core :as reload]
-    [lambdaisland.hiccup :as hiccup]
-    [lambdaisland.ornament :as o :refer [defstyled]]
-    [clojure.string :as string]
-    [garden.core :refer [css]]
-    [garden.compiler :as gc :refer [compile-css]]
-    [cybermonday.core :as md]
-    [cybermonday.utils]
-    [com.rpl.specter]
-    [cybermonday.ir :refer [md-to-ir]]
-    [cybermonday.parser]
-    [flatland.useful.seq :refer [partition-between]])
+   [lambdaisland.hiccup :as hiccup]
+   [lambdaisland.ornament :as o :refer [defstyled]]
+   [clojure.string :as string]
+   [garden.core :refer [css]]
+   [garden.compiler :as gc :refer [compile-css]]
+   [cybermonday.core :as md]
+   [cybermonday.utils]
+   [com.rpl.specter]
+   [cybermonday.ir :refer [md-to-ir]]
+   [cybermonday.parser]
+   [flatland.useful.seq :refer [partition-between]])
   (:require
-    [cv.data :as data]
-    #_:reload
-    #_:reload
-    [garden.selectors :as s])
+   [cv.data :as data]
+   #_:reload
+   [garden.selectors :as s])
   (:use [com.rpl.specter]))
 
 (comment 
@@ -74,7 +72,6 @@
     [:h1 "Ryan " [:br] "Martin"]
     [:h2 "Full Stack Developer"
      #_[resume-link]]]))
-     #_[resume-link]]]))
 
 (defstyled section-title :h2
   :text-md
@@ -103,7 +100,6 @@
   :text-blue-500
   :py-2
   #_:text-white
-  :bg-gray-100)
   :bg-gray-100)
 
 
@@ -189,7 +185,6 @@
    [:<>
     [section-title "Technologies I'm Exploring"]
     (for [{lib-name :name :keys [url subtitle]} data/technologies-interested-in]
-    (for [{lib-name :name :keys [url subtitle]} data/technologies-interested-in]
       [:div.item
        [:a {:href url} lib-name]
        [:span subtitle]])]))
@@ -214,8 +209,6 @@
   :sm:mb-8 :text-lg :sm:text-sm
   [:h4 :font-bold {:font-family (font :pt-sans)} 
    #_:text-gray-300]
-  [:h4 :font-bold {:font-family (font :pt-sans)} 
-   #_:text-gray-300]
   [:.info :flex :justify-center :gap-2  :sm:block #_#_#_:border-1 :border-solid :border-white
    [:h4 :mt-1 :tracking-wider]
    [:p :flex :flex-row :sm:flex-col :leading-loose
@@ -224,7 +217,7 @@
      #_:text-blue-300 :hover:text-blue-500
     [:a :block 
      #_:text-blue-300 :hover:text-blue-500
-     :mr-2 :sm:mr-0]]]
+     :mr-2 :sm:mr-0]]]]
   ([]
    [:<>
     [sidebar-title "Personal Info"]
@@ -292,8 +285,6 @@
 
 #_(defn timestamp []
   (System/currentTimeMillis))
-#_(defn timestamp []
-  (System/currentTimeMillis))
 
 (def home-hiccup
   [:html
@@ -310,8 +301,6 @@
       ;[resume-link]
       #_[personal-info]
       [personal-print]
-      #_[personal-info]
-      [personal-print]
       [skill-keywords]]
      [right-col
       [skills-summary]
@@ -319,22 +308,6 @@
       [education]
       [cool-technologies]]]]])
 
-
-#_(reload/reload)
-
-(def page-css
-  (o/defined-styles
-    {:preflight? true
-     :tw-version 3}))
-
-
-(do
-  (spit "docs/styles.css" page-css)
-  (println "spit css file")
-  (->> home-hiccup
-    (hiccup/render)
-    (spit "docs/index.html"))
-  (println "spit html file"))
 
 #_(reload/reload)
 
