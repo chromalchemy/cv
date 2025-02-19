@@ -2,3 +2,9 @@
 /.nrepl-port
 /.idea/
 /cv.iml
+.clj-kondo/
+.cpcache/
+.DS_Store
+.lsp/
+.portal/
+.calva/
